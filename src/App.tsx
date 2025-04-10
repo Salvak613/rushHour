@@ -1,0 +1,65 @@
+import './App.css';
+
+import { Link, Outlet } from "react-router";
+import { useParams } from "react-router";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router";
+import { WantedGuysContext } from "./context/WantedGuysContext";
+
+
+function App() {
+  const { currentGuy } = useContext(WantedGuysContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [keySequence, setKeySequence] = useState<string[]>([]);
+
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      const key = e.key.toUpperCase();
+
+
+      setKeySequence((prev) => {
+        const newSeq = [...prev, key].slice(-5);
+        if (newSeq.join("") === "WILD") {
+          navigate("/wilder");
+        }
+        return newSeq;
+      });
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
+    return () => window.removeEventListener("keydown", handleKeyPress);
+  }, [navigate]);
+
+  useEffect(() => {
+    const bodyClass = location.pathname === "/wilder"
+      ? "wilder-background"
+      : location.pathname === "/"
+      ? "home-background"
+      : "default-background";
+
+    document.body.className = bodyClass;
+
+    return () => {
+      document.body.className = "";
+    };
+  }, [location.pathname]);
+
+  return (
+    <div>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to={`fulldetails/${currentGuy?.id || "defaultId"}`}>
+          <button className="fullCase">Full Case</button>
+        </Link>
+      </nav>
+      <main>
+        <h2 className="neumorphic-text">FBI <br /> CONTROL PANNEL</h2>
+        <div className="light"></div>
+        <Outlet />
+      </main>
+    </div>
+  );
+}
+
+export default App;

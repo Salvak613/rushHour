@@ -1,0 +1,38 @@
+
+
+.terminalWrapper {
+    position: fixed;
+    top: 50%;
+    left : 50%;
+    translate : -50% -50%;
+    height: 100%;
+    width: 80%;
+    max-width: 800px;
+    background-color: black;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    overflow: hidden;
+  }
+  
+  .terminal {
+    width: 90%;
+    max-width: 800px;
+    height: 500px;
+    background-color: #000;
+    color: #00ff90;
+    font-family: "Courier New", monospace;
+    font-size: 1rem;
+    border: 3px solid #00ff90;
+    padding: 1rem;
+    overflow-y: auto;
+    box-shadow: 0 0 20px #00ff90;
+  }
+  
+  .line {
+    margin-bottom: 0.5rem;
+    white-space: pre-wrap;
+  }
+  

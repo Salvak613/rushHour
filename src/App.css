@@ -1,0 +1,60 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+body {
+  background-size: cover; /* Fait en sorte que l'image couvre tout l'écran */
+  background-repeat: no-repeat; /* Empêche la répétition de l'image */
+  background-position: center; /* Centre l'image */
+  height: 100vh; /* Assure que le body prend toute la hauteur de la fenêtre */
+  margin: 0; /* Supprime les marges par défaut */
+}
+
+.neumorphic-text {
+  font-family :Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 100;
+    font-size: clamp(2rem, 10vw, 5rem);
+    font-variant: small-caps;
+    position: fixed;
+    padding : 20px;
+    top: 70px;
+    left: 350px;
+    translate: -50% -50%;
+    color: transparent;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.014), 
+        -2px -2px 1px rgba(36, 36, 36, 0.151); 
+    background: linear-gradient(to bottom, #0000001f, #55555556);
+    -webkit-background-clip: text;
+    background-clip: text;
+    user-select : none;
+    color: #0c0b0b;
+    z-index: 0;
+}
+
+.fullCase {
+  z-index : 20
+}
+
+body.home-background {
+  background-color: #0e0d0c;
+}
+
+body.wilder-background {
+  background-color: black;
+}
+
+body.default-background {
+  background-color: #e9e6cc
+}
+
+
+
+@media screen and (max-width: 1550px) {
+  .neumorphic-text {
+    display: none;
+  }
+}
