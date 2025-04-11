@@ -49,14 +49,15 @@ const TV: React.FC = () => {
                     </p>
                   </div>
                 ) : (
-                  <p>PUSH THE BUTTON</p>
+                  <p className="push">PUSH THE BUTTON
+                  <br />"RANDOM WANTED"</p>
                 )}
               </div>
               <div className="vline"></div>
             </div>
             <div className="scan-line"></div>
           </div>
-          <button className="anotherWanted" onClick={showRandomGuy}>Another Wanted</button>
+          <button className="anotherWanted" onClick={showRandomGuy}>RANDOM WANTED</button>
         </div>
         <div className="clipboard-box">
           <img
@@ -65,10 +66,13 @@ const TV: React.FC = () => {
             alt="clipboard"
           />
           {currentGuy && (
-            <p className="caution">
-              {currentGuy.details === "N/A" ? "No details." : currentGuy.details}
-            </p>
-          )}
+  <p
+    className="caution"
+    dangerouslySetInnerHTML={{
+      __html: currentGuy.details === "N/A" ? "No details." : currentGuy.details,
+    }}
+  ></p>
+)}
         </div>
         <div className="post-it">
           <h3>

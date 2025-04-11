@@ -7,6 +7,7 @@ import { useNavigate, useLocation } from "react-router";
 import { WantedGuysContext } from "./context/WantedGuysContext";
 
 
+
 function App() {
   const { currentGuy } = useContext(WantedGuysContext);
   const navigate = useNavigate();
@@ -47,12 +48,28 @@ function App() {
 
   return (
     <div>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to={`fulldetails/${currentGuy?.id || "defaultId"}`}>
-          <button className="fullCase">Full Case</button>
+      <nav className="navBar">
+      {location.pathname.startsWith("/fulldetails") && (
+        <Link to="/"><button className="fullCase">
+        <span className="shadow"></span>
+        <span className="edge"></span>
+        <span className="front text"> 
+          Return</span>
+          </button>
         </Link>
-      </nav>
+      )}
+      {location.pathname === "/" && (
+        <Link to={`fulldetails/${currentGuy?.id || "defaultId"}`}>
+          <button className="fullCase">
+            <span className="shadow"></span>
+            <span className="edge"></span>
+            <span className="front text"> 
+              Full Case
+            </span>
+          </button>
+        </Link>
+      )}
+    </nav>
       <main>
         <h2 className="neumorphic-text">FBI <br /> CONTROL PANNEL</h2>
         <div className="light"></div>

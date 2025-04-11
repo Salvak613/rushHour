@@ -4,6 +4,8 @@ import { useContext, useEffect, useState } from "react";
 
 
 
+
+
  
 
 const Home = () => {
@@ -17,9 +19,9 @@ const Home = () => {
      
 
       setKeySequence((prev) => {
-        const newSeq = [...prev, key].slice(-5); // garder 5 dernières lettres
+        const newSeq = [...prev, key].slice(-5); 
         if (newSeq.join("") === "WILD") {
-          navigate("/wilder"); // redirige
+          navigate("/wilder"); 
         }
         return newSeq;
       });
@@ -31,9 +33,10 @@ const Home = () => {
 
     return (
       <div>
+        
         <TV/>
       </div>
     );
   };
   
-  export default Home; // Ensure this line exists
+  export default Home;

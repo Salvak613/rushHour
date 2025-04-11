@@ -75,10 +75,13 @@ const FullDetails: React.FC = () => {
         )}
 
         {/* Détails */}
-        <div className={styles.detailsBox}>
-          <h2 className="text-xl font-semibold mb-2">Détails du dossier</h2>
-          <p className="text-justify">{selectedGuy.details}</p>
-        </div>
+<div className={styles.detailsBox}>
+  <h2 className="text-xl font-semibold mb-2">Détails du dossier</h2>
+  <div
+    className="text-justify"
+    dangerouslySetInnerHTML={{ __html: selectedGuy.details }}
+  />
+</div>
 
         {/* Easter egg 👀 */}
         <p className="text-xs text-gray-400 mt-6 italic text-center select-none">
