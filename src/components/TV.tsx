@@ -1,7 +1,6 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import "./TV.css";
 import { WantedGuysContext } from "../context/WantedGuysContext";
-import { WantedGuy } from "../model/WantedGuy";
 
 const TV: React.FC = () => {
   const { data: wantedGuys, loading, error, setCurrentGuy, currentGuy } = useContext(WantedGuysContext);

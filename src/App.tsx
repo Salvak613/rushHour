@@ -1,7 +1,6 @@
 import './App.css';
 
 import { Link, Outlet } from "react-router";
-import { useParams } from "react-router";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router";
 import { WantedGuysContext } from "./context/WantedGuysContext";
@@ -12,7 +11,7 @@ function App() {
   const { currentGuy } = useContext(WantedGuysContext);
   const navigate = useNavigate();
   const location = useLocation();
-  const [keySequence, setKeySequence] = useState<string[]>([]);
+  const setKeySequence = useState<string[]>([])[1];
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {

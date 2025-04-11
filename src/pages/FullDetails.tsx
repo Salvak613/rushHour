@@ -1,7 +1,6 @@
 import { WantedGuysContext } from "../context/WantedGuysContext";
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import styles from "./FullDetails.module.css"; // Assuming you have a CSS module for styling
-import { WantedGuy } from "../model/WantedGuy";
 import {useParams} from "react-router"
 
 const FullDetails: React.FC = () => {

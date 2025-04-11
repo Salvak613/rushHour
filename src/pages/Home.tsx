@@ -1,6 +1,6 @@
 import TV from "../components/TV"; 
 import { useNavigate } from "react-router";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 
 
@@ -11,7 +11,7 @@ import { useContext, useEffect, useState } from "react";
 const Home = () => {
 
   const navigate = useNavigate();
-  const [keySequence, setKeySequence] = useState<string[]>([]);
+  const setKeySequence = useState<string[]>([])[1];
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
