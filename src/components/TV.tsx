@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import "./TV.css";
 import { WantedGuysContext } from "../context/WantedGuysContext";
+import {board} from "../assets/clipboard.png"
 
 const TV: React.FC = () => {
   const { data: wantedGuys, loading, error, setCurrentGuy, currentGuy } = useContext(WantedGuysContext);
@@ -61,7 +62,7 @@ const TV: React.FC = () => {
         <div className="clipboard-box">
           <img
             className="clipboard"
-            src="src/assets/clipboard.png"
+            src={board}
             alt="clipboard"
           />
           {currentGuy && (
