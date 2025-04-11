@@ -3,9 +3,6 @@ import { useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 
 
-
-
-
  
 
 const Home = () => {

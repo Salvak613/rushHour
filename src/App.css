@@ -3,6 +3,10 @@
   padding: 2rem;
 }
 
+* {
+  user-select: none;;
+}
+
 body {
   height: 100vh; /* Assure que le body prend toute la hauteur de la fenêtre */
   margin: 0; /* Supprime les marges par défaut */
@@ -20,13 +24,13 @@ body {
     translate: -50% -50%;
     color: transparent;
     text-shadow: 
-        2px 2px 4px rgba(0, 0, 0, 0.014), 
-        -2px -2px 1px rgba(36, 36, 36, 0.151); 
-    background: linear-gradient(to bottom, #0000001f, #55555556);
+        2px 2px 4px rgba(0, 0, 0, 0.505), 
+        -2px -2px 1px rgba(36, 36, 36, 0.707); 
+    background: linear-gradient(to bottom, #000000b4, #555555ae);
     -webkit-background-clip: text;
     background-clip: text;
     user-select : none;
-    color: #000000;
+    color: #858484;
     z-index: -1;
     text-align: center;
 }
@@ -39,7 +43,7 @@ body {
 
 
 body.home-background {
-  background-color: #0e0d0c;
+  background-color: #2a2623;
 }
 
 body.wilder-background {
