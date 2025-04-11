@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./TV.css";
 import { WantedGuysContext } from "../context/WantedGuysContext";
-import {board} from "../assets/clipboard.png"
+import board from "../assets/clipboard.png"
 
 const TV: React.FC = () => {
   const { data: wantedGuys, loading, error, setCurrentGuy, currentGuy } = useContext(WantedGuysContext);
