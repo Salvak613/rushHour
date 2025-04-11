@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useState, useEffect, ReactNode } from 'react';
 import { WantedGuy } from '../model/WantedGuy';
 
 interface WantedGuysContextProps {
@@ -34,12 +34,32 @@ export const WantedGuysProvider = ({ children }: { children: ReactNode }) => {
         console.log("Données brutes de l'API :", result);
 
         if (Array.isArray(result.items)) {
-          const newWantedGuys: WantedGuy[] = result.items.map((newEntry) => {
+            interface ApiResponseItem {
+            uid: string;
+            aliases?: string;
+            details?: string;
+            dates_of_birth_used?: string;
+            subjects?: string[];
+            description?: string;
+            images?: { original: string }[];
+            status?: string;
+            age_range?: string;
+            reward_text?: string;
+            sex?: string;
+            race?: string;
+            warning_message?: string;
+            url?: string;
+            hair?: string;
+            field_offices?: string[];
+            title?: string;
+            }
+
+            const newWantedGuys: WantedGuy[] = result.items.map((newEntry: ApiResponseItem) => {
             return new WantedGuy(
               newEntry.uid,
-              newEntry.aliases || 'UNKNOWN',
+              newEntry.aliases ? [newEntry.aliases] : ['UNKNOWN'],
               newEntry.details || 'N/A',
-              newEntry.dates_of_birth_used || 'N/A',
+              newEntry.dates_of_birth_used ? [newEntry.dates_of_birth_used] : ['N/A'],
               newEntry.subjects || [],
               newEntry.description || 'N/A',
               newEntry.images?.[0]?.original || null,
@@ -54,7 +74,7 @@ export const WantedGuysProvider = ({ children }: { children: ReactNode }) => {
               newEntry.field_offices || [],
               newEntry.title || 'N/A'
             );
-          });
+            });
           setData(newWantedGuys);
         } else {
           throw new Error('Invalid data format from API');
