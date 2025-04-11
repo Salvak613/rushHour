@@ -12,11 +12,12 @@ function App() {
   const navigate = useNavigate();
   const location = useLocation();
   const setKeySequence = useState<string[]>([])[1];
-  const [hasClicked, setHasClicked] = useState(false);
+
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
       const key = e.key.toUpperCase();
+      console.log(key)
 
 
       setKeySequence((prev) => {
@@ -46,12 +47,10 @@ function App() {
     };
   }, [location.pathname]);
 
-  const handleClick = () => {
-    setHasClicked(true); 
-  };
+
 
   return (
-    <div onClick={handleClick}>
+    <div >
       <nav className="navBar">
       {location.pathname.startsWith("/fulldetails") && (
         <Link to="/"><button className="fullCase">
@@ -62,7 +61,7 @@ function App() {
           </button>
         </Link>
       )}
-       {location.pathname === "/" && hasClicked && ( // Affiche le bouton seulement après un clic
+       {location.pathname === "/"  && ( // Affiche le bouton seulement après un clic
           <Link to={`fulldetails/${currentGuy?.id || "defaultId"}`}>
             <button className="fullCase">
               <span className="shadow"></span>
